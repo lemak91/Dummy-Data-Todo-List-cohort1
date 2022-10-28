@@ -15,8 +15,6 @@ let arrayOfTodos = [
   },
 ];
 
-
-
 const fetchTodos = () => {
   fetch("https://jsonplaceholder.typicode.com/todos")
     .then((response) => response.json())
@@ -28,17 +26,17 @@ const logTodos = () => {
 };
 
 const populateTodos = () => {
-    // get ol element to put todos
-    let ol = document.getElementById("todo-list");
-    // loop through arrayOfTodos
-    for (let i = 0; 1 < arrayOfTodos.length; i++) {
+  // get ol element to put todos
+  let ol = document.getElementById("todo-list");
+  // loop through arrayOfTodos
+  for (let i = 0; 1 < arrayOfTodos.length; i++) {
     // create li element
     let li = document.createElement("li");
     // create text node to put title property
-    let text = document.createTextNode(arrayOfTodos[i].title)
+    let text = document.createTextNode(arrayOfTodos[i].title);
     // append text to li element
     li.appendChild(text);
-    // append li element to ol 
+    // append li element to ol
     ol.appendChild(li);
-    }
+  }
 };
