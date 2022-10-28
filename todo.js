@@ -15,6 +15,7 @@ let arrayOfTodos = [
   },
 ];
 
+let filteredTodos;
 const fetchTodos = () => {
   fetch("https://jsonplaceholder.typicode.com/todos")
     .then((response) => response.json())
@@ -29,14 +30,29 @@ const populateTodos = () => {
   // get ol element to put todos
   let ol = document.getElementById("todo-list");
   // loop through arrayOfTodos
-  for (let i = 0; 1 < arrayOfTodos.length; i++) {
-    // create li element
+  for (let i = 0; i < arrayOfTodos.length; i++) {
     let li = document.createElement("li");
     // create text node to put title property
+    console.log(i);
+    console.log(arrayOfTodos[i]);
     let text = document.createTextNode(arrayOfTodos[i].title);
     // append text to li element
     li.appendChild(text);
     // append li element to ol
     ol.appendChild(li);
   }
+};
+
+const filterTodos = () => {
+  let userIdElement = document.getElementById("userId");
+  let userIdValue = userIdElement.value;
+  console.log([userIdElement]);
+  console.log(userIdValue);
+  ol.innerHTML = null;
+
+  filteredTodos = arrayOfTodos.filter((todo) => {
+    return todo.userId == parsInt(userIdValue);
+  });
+
+  console.log(filteredTodos);
 };
